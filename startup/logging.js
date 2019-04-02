@@ -1,3 +1,4 @@
+const config = require("config");
 const winston = require("winston");
 require("winston-mongodb");
 require("express-async-errors");
@@ -19,7 +20,7 @@ module.exports = function() {
 
   winston.add(
     new winston.transports.MongoDB({
-      db: "mongodb://localhost/customer_management",
+      db: config.get("db"),//"mongodb://localhost/customer_management",
       level: "error"
     })
   );

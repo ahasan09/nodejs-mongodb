@@ -1,7 +1,15 @@
+const config = require("config");
 const mongoose = require("mongoose");
 
 module.exports = function() {
-  const mongoDb = "mongodb://localhost/customer_management";
+  const mongoDb = config.get("db");
+  
+  if (!config.get("db")) {
+    console.log("FATAL ERROR: db is not defined");
+    process.exit(1);
+  }
+
+  //"mongodb://localhost/customer_management";
   mongoose.connect(mongoDb, {
     useCreateIndex: true,
     useNewUrlParser: true

@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey":"csm_jwtPrivateKey"
+    "jwtPrivateKey":"csm_jwtPrivateKey",
+    "db":"csm_db"
 }
