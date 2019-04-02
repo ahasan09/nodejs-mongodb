@@ -1,7 +1,13 @@
-const _ = require("lodash");
+const winston = require("winston");
+const express = require("express");
+const app = express();
 
-const result = _.map([1,2,3,5,8,7,45,2],(item)=>{
-    return item+2;
-});
+require("./startup/logging")();
+require("./startup/routes")(app);
+require("./startup/db")();
+require("./startup/config")();
+require("./startup/prod")(app);
 
-console.log(result);
+const port = process.env.PORT || 3000;
+// app.listen(port, () => winston.info(`Listening on port ${port}...`));
+app.listen(port, () => console.log(`Listening on port ${port}...`));
