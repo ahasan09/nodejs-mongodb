@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=production mocha --reporter spec",
+    "test": "export NODE_ENV=production || set NODE_ENV=production&& mocha --reporter spec",
     "start":"node index.js"
   },
   "engines": {
