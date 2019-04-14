@@ -2,6 +2,8 @@ const winston = require("winston");
 const express = require("express");
 const app = express();
 
+console.log("App Started");
+
 require("./startup/logging")();
 require("./startup/routes")(app);
 require("./startup/db")();
